@@ -1,0 +1,34 @@
+ kubectl api-resources | grep volumesnapshot
+  524  kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+  525  kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+  526  kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/release-5.0/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+  527  kubectl api-resources | grep volumesnapshot
+  528  vi test-snapshot.yaml
+  529  kubectl apply -f test-snapshot.yaml
+  530  vi test-snapshot.yaml
+  531  kubectl apply -f test-snapshot.yaml
+  532  vi test-snapshot.yaml
+  533  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- cat /var/log/nginx/access.log
+  534  cat > volumesnapshot.yaml
+  535  vi volumesnapshot.yaml
+  536  kubectl apply -f volumesnapshot.yaml
+  537  kubectl get volumesnapshot
+  538  kubectl get volumesnapshot -A
+  539  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- rm /var/log/nginx/access.log
+  540  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- rm ls -l /var/log/nginx/access.log
+  541  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- ls -l /var/log/nginx/access.log
+  542  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- ls -l /var/log/nginx/*
+  543  kubectl -n nginx-example exec nginx-deployment-748c59455d-hzpkc -c nginx -- ls -al /var/log/nginx/
+  544  kubectl -n nginx-example scale deployment/nginx-deployment --replicas=0
+  545  kubectl -n nginx-example delete pvc nginx-logs
+  546  vi volumerestore.yaml
+  547  kubectl apply  -f volumerestore.yaml
+  548  kubectl -n nginx-example get pvc
+  549  kubectl -n nginx-example scale deployment/nginx-deployment --replicas=1
+  550  kubectl -n nginx-example get pods -w
+  551  kubectl -n nginx-example exec nginx-deployment-748c59455d-d2bct  -c nginx -- ls -al /var/log/nginx/
+  552  kubectl -n nginx-example exec nginx-deployment-748c59455d-d2bct  -c nginx -- cat /var/log/nginx/access.log
+  553  kubectl -n nginx-example exec nginx-deployment-748c59455d-d2bct  -c nginx -- cat /var/log/nginx/access.log -w
+  554  kubectl -n nginx-example exec nginx-deployment-748c59455d-d2bct  -c nginx -- tail -f /var/log/nginx/access.log -w
+  555  kubectl -n nginx-example exec nginx-deployment-748c59455d-d2bct  -c nginx -- tail -f /var/log/nginx/access.log
+

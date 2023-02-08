@@ -1,0 +1,10 @@
+
+
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: nginx-snapshot
+  namespace: nginx-example
+spec:
+  source:
+    persistentVolumeClaimName: nginx-logs 
